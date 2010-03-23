@@ -1,4 +1,4 @@
-pro cmfgen2tlusty, T, logg, w, f
+pro readcmfgen, T, logg, w, f
 
 T = double(T)
 Tstring = strmid(t,7,5)
