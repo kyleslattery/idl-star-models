@@ -59,23 +59,12 @@ for i = long(0), N-1 do begin
 
 	if strmid(fstr,6,1) eq '-' then fstr = strmid(fstr,0,6) + 'E' + strmid(fstr,6,4)
 
-	if freq gt 0. then begin
-		w(i) = double(3.e8*1.e10/(freq*1.e15))
+	w(i) = double(3.e8*1.e10/(freq*1.e15))
 		
-		; The coefficient of 0.03333 takes into account several conversion factors:
-		; 0.03333 = 10^-23 * (10^15)^2 / 3e8
-		f(i) = double(fstr)*freq*freq*0.03333
-		; f(i) = double(fstr)*freq*10.e-23*10.e15*10.e-10
-	endif else begin
-		w(i) = 0
-		f(i) = 0
-	endelse
-	;print, string(w(i)) + ": " + string(f(i)) + ": " + string(freq) + ": " + fstr
+	; The coefficient of 3.333333e-12 takes into account several conversion factors:
+	; 10^-23 (janskys to ergs) * [(10^15)^2 / 3e8] (convert to flux units) / 1.e10 (convert to angstroms)
+	f(i) = double(fstr)*freq*freq*3.333333e-12
 endfor
-
-;good = where(w gt 0)
-;w = w(good)
-;f = f(good)
 
 close,1
 print,w(100)
