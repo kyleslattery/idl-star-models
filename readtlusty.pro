@@ -13,13 +13,14 @@ openr,1,dir+model
 N = long(1000000)
 w = dblarr(N)
 f = dblarr(N)
-;data = dblarr(2,N)
-;readf,1,data
+
 i = long(0)
 while not EOF(1) do begin
     readf,1,tmp1,tmp2
     w(i)= tmp1
-    f(i) = tmp2
+
+    ; convert to observed flux at 1kpc
+    f(i) = tmp2/(4.*!pi*3.0857e21)^2
     i = i+1
 endwhile
 close,1
@@ -27,7 +28,6 @@ close,1
 good = where(w ne 0)
 w = w(good)
 f = f(good)
-print,w
 
 plot,w,f
 return
