@@ -20,7 +20,7 @@ while not EOF(1) do begin
     w(i)= tmp1
 
     ; convert to observed flux at 1kpc
-    f(i) = tmp2 ;/(4.*!pi*3.0857e21)^2
+    f(i) = tmp2*4.*!pi
     i = i+1
 endwhile
 close,1
