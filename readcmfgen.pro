@@ -43,15 +43,15 @@ READF,1,obsheaderrows
 ; read flux
 READF,1,frows
 
-w = dblarr(N)
-f = dblarr(N)
+w = fltarr(N)
+f = fltarr(N)
 
 for i = long(0), N-1 do begin
 	wrow = i/9
 	wpos = i MOD 9
 	
 	; freq is in units of 10^15 Hz
-	freq = double(strmid(wrows(wrow), 3+wpos*14,12))
+	freq = float(strmid(wrows(wrow), 3+wpos*14,12))
 
 	frow = i/10
 	fpos = i MOD 10
@@ -59,11 +59,12 @@ for i = long(0), N-1 do begin
 
 	if strmid(fstr,6,1) eq '-' then fstr = strmid(fstr,0,6) + 'E' + strmid(fstr,6,4)
 
-	w(i) = double(3.e8*1.e10/(freq*1.e15))
+	w(i) = float(3.e8*1.e10/(freq*1.e15))
 		
 	; The coefficient of 3.333333e-12 takes into account several conversion factors:
 	; 10^-23 (janskys to ergs) * [(10^15)^2 / 3e8] (convert to flux units) / 1.e10 (convert to angstroms)
 	f(i) = double(fstr)*freq*freq*3.333333e-12
+	f(i) = f(i)*4.0*!pi*3.086e21
 endfor
 
 close,1
