@@ -67,8 +67,7 @@ for i = long(0), N-1 do begin
 endfor
 
 close,1
-print,w(100)
 plot,w,f,xrange=[3000,8000]
-print, 'done'
+
 return
 end
