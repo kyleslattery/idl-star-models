@@ -29,6 +29,5 @@ good = where(w ne 0)
 w = w(good)
 f = f(good)
 
-plot,w,f
 return
 end
