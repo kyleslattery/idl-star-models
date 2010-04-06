@@ -6,7 +6,11 @@
 pro gaussconvol, x, y, broadening, xout, yout
 
 ; Create Gaussian function
-gauss = PSF_GAUSSIAN(NPIXEL=100, FWHM=broadening, /NORMAL, NDIMEN=1)
+gauss = PSF_GAUSSIAN(NPIXEL=10*broadening, FWHM=broadening, /NORMAL, NDIMEN=1)
+
+; CONVOL with the Gauss function
+yout = CONVOL(y, gauss)
+xout = x
 
 return
 end
