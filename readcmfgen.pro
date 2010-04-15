@@ -89,5 +89,9 @@ endfor
 
 close,1
 
+good = where(w gt 3000 and w lt 8000)
+w = w(good)
+f = f(good)
+
 return
 end
