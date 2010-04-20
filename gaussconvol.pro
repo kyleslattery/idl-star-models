@@ -6,7 +6,7 @@
 pro gaussconvol, x, y, broadening, xout, yout
 
 ; Determine size of array
-sizearr = size(x)
+sizearr = double(size(x))
 N       = sizearr(1)
 
 ; Rebin to uniform grid
@@ -17,7 +17,6 @@ newy = interpol(y,x,newx)
 x = newx
 y = newy
 
-print,dx
 broadening = broadening/dx
 ;print,x
 
