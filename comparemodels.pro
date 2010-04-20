@@ -16,7 +16,7 @@ gaussconvol,cx,cy,broad,cxout,cyout
 ty2 = interpol(tyc,txc,txout)
 cy2 = interpol(cyc,cxc,cxout)
 
-plot,txout,tyout/ty2,xrange=[4000,4200]
+plot,txout,tyout/ty2,xrange=[3000,8000]
 oplot,cxout-4,cyout/cy2,LINESTYLE=1
 
 return
