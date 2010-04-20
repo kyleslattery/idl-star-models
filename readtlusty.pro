@@ -4,7 +4,7 @@ pro readtlusty, T, logg, w, f
 Tstring = strmid(double(T),7,5)
 loggstring = strn(fix(logg*100.))
 
-; automatically generate model name for continuum flux
+; automatically generate model name for flux
 model = 'G'+Tstring+'g'+loggstring+'v10.vis.7'
 dir = '/Users/kslattery/Desktop/Tlusty/Gvispec/'
 
