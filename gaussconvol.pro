@@ -10,23 +10,21 @@ sizearr = double(size(x))
 N       = sizearr(1)
 
 ; Rebin to uniform grid
-dx = mean(deriv(x))
+newdx = mean(deriv(x))
 x0 = x(0)
-newx = findgen(N)*dx+x0
+newx = findgen(N)*newdx+x0
 newy = interpol(y,x,newx)
-x = newx
-y = newy
 
-broadening = broadening/dx
+newbroadening = broadening/newdx
 ;print,x
 
 ; Create Gaussian function
 ; Docs: http://idlastro.gsfc.nasa.gov/ftp/pro/image/psf_gaussian.pro
-gauss = PSF_GAUSSIAN(NPIXEL=broadening*10, FWHM=broadening, /NORMAL, NDIMEN=1)
+gauss = PSF_GAUSSIAN(NPIXEL=newbroadening*10, FWHM=newbroadening, /NORMAL, NDIMEN=1)
 
 ; CONVOL with the Gauss function
-yout = CONVOL(y, gauss)
-xout = x
+yout = CONVOL(newy, gauss)
+xout = newx
 
 return
 end

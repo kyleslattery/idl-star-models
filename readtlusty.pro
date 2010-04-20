@@ -1,8 +1,7 @@
 pro readtlusty, T, logg, w, f
 
 ; Convert inputs to strings
-T = double(T)
-Tstring = strmid(t,7,5)
+Tstring = strmid(double(T),7,5)
 loggstring = strn(fix(logg*100.))
 
 ; automatically generate model name for continuum flux

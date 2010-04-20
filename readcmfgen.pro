@@ -1,8 +1,7 @@
 pro readcmfgen, T, logg, w, f
 
 ; Generate Model file path and open
-T = double(T)
-Tstring = strmid(t,7,5)
+Tstring = strmid(double(T),7,5)
 loggstring = strn(fix(logg*100.))
 
 model = "NT" + Tstring + "_logg" + loggstring + "/obs/obs_fin_10"
