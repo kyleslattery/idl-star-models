@@ -8,5 +8,7 @@ List of files
 * `gaussconvol.pro` - Convolves a spectrum given a gaussian broadening
 * `readcmfgen.pro` - Reads in a CMFGEN model
 * `readcmfgencont.pro` - Reads in a CMFGEN continuum model
+* `readcmfgenrect.pro` - Reads in a rectified CMFGEN model
 * `readtlusty.pro` - Reads in a Tlusty model
 * `readtlustycont.pro` - Reads in a Tlusty continuum flux
+8 `readtlustyrect.pro` - Reads in a rectified Tlusty model
