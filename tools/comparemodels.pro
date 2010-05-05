@@ -22,8 +22,8 @@ oplot,cxout-4,cyout/cy2,LINESTYLE=1
 return
 end
 
-@./gaussconvol.pro
-@./readtlusty.pro
-@./readcmfgen.pro
-@./readtlustycont.pro
-@./readcmfgencont.pro
+@./tools/gaussconvol.pro
+@./tlusty/readtlusty.pro
+@./cmfgen/readcmfgen.pro
+@./tlusty/readtlustycont.pro
+@./cmfgen/readcmfgencont.pro

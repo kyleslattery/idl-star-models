@@ -67,5 +67,5 @@ oplot, cmfgentemps, cmfgenstrengths, LINESTYLE=1
 return
 end
 
-@./readcmfgenrect.pro
-@./readtlustyrect.pro
+@./cmfgen/readcmfgenrect.pro
+@./tlusty/readtlustyrect.pro

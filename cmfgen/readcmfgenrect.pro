@@ -15,6 +15,6 @@ f = yg/yrebin
 return
 end
 
-@./gaussconvol.pro
-@./readcmfgen.pro
-@./readcmfgencont.pro
+@./tools/gaussconvol.pro
+@./cmfgen/readcmfgen.pro
+@./cmfgen/readcmfgencont.pro

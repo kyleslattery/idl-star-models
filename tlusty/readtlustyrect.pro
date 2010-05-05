@@ -15,6 +15,6 @@ f = yg/yrebin
 return
 end
 
-@./gaussconvol.pro
-@./readtlusty.pro
-@./readtlustycont.pro
+@./tools/gaussconvol.pro
+@./tlusty/readtlusty.pro
+@./tlusty/readtlustycont.pro
