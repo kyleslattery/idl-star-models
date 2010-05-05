@@ -1,1 +1,0 @@
-* Check 30000 K with different logg
