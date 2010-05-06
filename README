@@ -1,0 +1,56 @@
+This is a collection of tools to analyze and compare model output from CMFGEN and Tlusty models using IDL.
+
+__A note__: the idl console (running `idl` in the X11 terminal) should be run while in the root directory, and all files should be included using their directories, as this is how the includes are set up.  For instance, to include the cmfgen/readcmfgen.pro routine, you’d open IDL in the root directory and then run `.run cmfgen/readcmfgen.pro`
+
+Summary of Routines
+-------------------
+
+cmfgen/readcmfgen.pro
+cmfgen/readcmfgencont.pro
+tlusty/readtlusty.pro
+tlusty/readtlustycont.pro
+
+These routines read in the model output files and return arrays of wavelength and frequency, which can then be plotted.  The routines ending in “cont” read in the continuum files, whereas the others read in the entire spectrum.
+
+Make sure to edit the filepaths in these files, so that they point to the correct location of the model files.
+
+All of these routines take the same arguments, in the following order:
+
+    - T – the temperature in Kelvin of the star
+    - logg  - the surface gravity (e.g. “4.00”)
+    - w – this is the variable that will be returned with the array of wavelengths (in angstroms)
+    - f – this variable is filled with the fluxes corresponding to the wavelengths in w
+ 
+cmfgen/readcmfgenrect.pro
+tlusty/readtlustyrect.pro
+
+These return the rectified and convolved spectrums, which are computed by dividing the spectrum by the continuum.  The arguments are:
+
+    -	T – temperature in Kelvin
+    -	logg – surface gravity
+    -	broad – amount of broadening (suggested value is 2)
+    -	w – wavelengths are outputted to this
+    -	f – fluxes are outputted to this
+
+tools/comparemodels.pro
+
+This will a graph comparing the spectra of Tlusty (solid line) and CMFGEN (dotted line).  The arguments are:
+
+    -	T – temperature in Kelvin
+    -	logg – surface gravity
+    -	broad – broadening (suggested value is 2)
+
+tools/gaussconvol.pro
+
+Convolves a set of x and y values given a Gaussian broadening.  The arguments are:
+
+    -	x – input x values
+    -	y – input y values
+    -	broadening – broadening (suggested value is 2)
+    -	xout – output x values
+    -	yout – output y values
+
+tools/comparelinestrengths.pro
+tools/comparelinestrengths2.pro
+
+These will both compare the equivalent width of a given line.  The first compares it across temperatures, while the second compares it across values for surface gravity.  The only argument is line, which is the line you wish to compare, in angstroms.  When this is run, it will ask you to click the lower and upper bounds of the line for each model.
